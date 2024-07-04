@@ -33,6 +33,14 @@ func rotoint(s string) int {
 				continue
 			}
 		}
+
+		// Check for invalid Roman numeral pattern
+		if i+3 <= n {
+			if _, ok := rtoar[s[i:i+4]]; ok {
+				panic("Panic: Invalid Roman numeral")
+			}
+		}
+
 		if value, ok := rtoar[string(s[i])]; ok {
 			res += value
 			i++
